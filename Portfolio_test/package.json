@@ -1,0 +1,22 @@
+{
+  "name": "assignment1",
+  "version": "1.0.0",
+  "description": "COMP229 Assignment 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ItsYourFriendFred/COMP229.git"
+  },
+  "author": "Fred Wong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ItsYourFriendFred/COMP229/issues"
+  },
+  "homepage": "https://github.com/ItsYourFriendFred/COMP229#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
