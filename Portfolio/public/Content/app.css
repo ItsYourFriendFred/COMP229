@@ -55,6 +55,22 @@ body{
   margin: 3em auto;
 }
 
+#projects {
+  color:#012443;
+}
+
 .aboutText {
-  color:#01325d;
+  color:#012443;
+}
+
+.carousel {
+  height: 100%;
+  width: 100%;
+}
+
+.captionBG {
+  background: rgba(0,0,0,0.7);
+  text-align: center;
+  color: #fff; 
+  padding: 10px;
 }
