@@ -7,11 +7,11 @@ Date: October 3, 2022
 Custom CSS goes here
 */
 
-/* body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/* Recreating the jumbotron class since it's deprecated in Bootstrap 5 and above */
+.jumbotron {
+  padding: 4rem 2rem;
+  margin-bottom: 2rem;
+  background-color: var(--bs-gray-200);
+  border-radius: .3rem;  
 }
 
-a {
-  color: #00B7FF;
-} */
