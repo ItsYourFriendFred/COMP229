@@ -1,59 +1,64 @@
-<%- include('partials/header.ejs') %> 
+<%- include('partials/header.ejs') %>
 
-<%- include('partials/main_nav.ejs') %> 
+<%- include('partials/main_nav.ejs') %>
 
-  <!-- Main Content -->
-  <main>
+<!-- Main Content -->
+<main>
     <div class="container bg-secondary mt-5 p-3 rounded-4">
         <section id="projects">
             <h1 class="text-center">Personal Projects</h1>
         </section>
-    <!-- Carousel for Projects Section -->
-    <div id="carouselProjects" class="carousel slide" data-bs-ride="carousel">
-        <!-- Carousel Slide Order Indicator -->
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselProjects" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselProjects" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselProjects" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <!-- Carousel for Projects Section -->
+        <div id="carouselProjects" class="carousel slide" data-bs-ride="carousel">
+            <!-- Carousel Slide Order Indicator -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselProjects" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselProjects" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselProjects" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <!-- Carousel Images -->
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <img src="/Assets/images/project1.png" class="d-block w-100" alt="Project 1: eVet SRS & SDS">
+                    <div class="carousel-caption d-md-block">
+                        <h5 class="captionBG">eVet SRS & SDS<br>Mobile app for pet e-health applying the EHR concept /
+                            Team Lead</h5>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="10000">
+                    <img src="/Assets/images/project2.png" class="d-block w-100"
+                        alt="Project 2: Julia Fractal Generator">
+                    <div class="carousel-caption d-md-block">
+                        <h5 class="captionBG">Julia Fractal Generator<br>CUDA-based fractal generator for the Julia set / CUDA
+                            Demonstration</h5>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="10000">
+                    <img src="/Assets/images/project3.png" class="d-block w-100"
+                        alt="Project 3: Bell Hackathon Figma Prototype">
+                    <div class="carousel-caption d-md-block">
+                        <h5 class="captionBG">Bell Hackathon Mentorship App<br>Figma Prototype / Co-Author / Top 30
+                            Entry</h5>
+                    </div>
+                </div>
+            </div>
+            <!-- Carousel Left Arrow Control -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselProjects" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <!-- Carousel Right Arrow Control -->
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselProjects" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <!-- Carousel Images -->
-        <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="10000">
-                <img src="/Assets/images/project1.png" class="d-block w-100" alt="Project 1: eVet SRS & SDS">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5 class="captionBG">eVet SRS & SDS<br>Mobile app for pet e-health applying the EHR concept / Team Lead</h5>
-                </div>
-            </div>
-            <div class="carousel-item" data-bs-interval="10000">
-                <img src="/Assets/images/project2.png" class="d-block w-100" alt="Project 2: Julia Fractal Generator">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Julia Fractal Generator<br>CUDA-based fractal generator for the Julia set / CUDA Demonstration</h5>
-                </div>
-            </div>
-            <div class="carousel-item" data-bs-interval="10000">
-                <img src="/Assets/images/project3.png" class="d-block w-100"
-                    alt="Project 3: Bell Hackathon Figma Prototype">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5 class="captionBG">Bell Hackathon Mentorship App<br>Figma Prototype / Co-Author / Top 30 Entry</h5>
-                </div>
-            </div>
-        </div>
-        <!-- Carousel Left Arrow Control -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselProjects" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <!-- Carousel Right Arrow Control -->
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselProjects" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </div>
-</div>
-  </main>
-    
-<%- include('partials/bottom_nav.ejs') %> 
+</main>
 
-<%- include('partials/footer.ejs') %> 
+<%- include('partials/bottom_nav.ejs') %>
 
+<%- include('partials/footer.ejs') %>

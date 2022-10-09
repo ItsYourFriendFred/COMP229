@@ -68,6 +68,12 @@ body{
   width: 100%;
 }
 
+.carouselCustomSize1 {
+  width: 75%;
+  height: 75;
+  margin: auto;
+}
+
 .captionBG {
   background: rgba(0,0,0,0.7);
   text-align: center;
