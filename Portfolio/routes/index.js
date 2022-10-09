@@ -1,3 +1,12 @@
+/* 
+File Name: index.js
+Student Name: Fred Wong
+Student ID: 301199984 
+Date: October 3, 2022
+
+routes/index.js
+*/
+
 var express = require('express');
 var router = express.Router();
 
@@ -28,7 +37,7 @@ router.get('/services', function(req, res, next) {
 
 /* GET Contact page. */
 router.get('/contact', function(req, res, next) {
-  res.render('index', { title: 'Contact'});
+  res.render('contact', { title: 'Contact'});
 });
 
 module.exports = router;

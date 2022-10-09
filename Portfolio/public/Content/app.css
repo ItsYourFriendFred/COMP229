@@ -80,3 +80,11 @@ body{
   color: #fff; 
   padding: 10px;
 }
+
+.email {
+  text-decoration: none;
+}
+
+.form-group {
+  margin: 1em 0;
+}
