@@ -7,6 +7,10 @@ Date: October 3, 2022
 Custom CSS goes here
 */
 
+body{
+  background-color: #e1f6fa;
+}
+
 /* Recreating the jumbotron class since it's deprecated in Bootstrap 5 and above */
 .jumbotron {
   padding: 4rem 2rem;
@@ -15,3 +19,42 @@ Custom CSS goes here
   border-radius: .3rem;  
 }
 
+#mission {
+  padding-top: 1%;
+  background-color: var(--bs-gray-200);
+}
+
+#checkMe {
+  margin-top: 2rem;
+}
+
+.flexItem {
+  align-items: center;
+  justify-content: center;
+}
+
+.checkIcons {
+  font-size: 6em;
+  animation-duration: 2s;
+}
+
+.resumeIcon {
+    font-size: 6em;
+}
+
+.checkLink, .checkLink:hover, .checkLink:active, .checkLink:focus {
+  color:black;
+  text-decoration: none !important;
+}
+
+.copyright {
+  text-align: center;
+}
+
+#aboutMe {
+  margin: 3em auto;
+}
+
+.aboutText {
+  color:#01325d;
+}
