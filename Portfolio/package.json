@@ -19,12 +19,12 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "jquery": "^3.6.1",
+    "mime-types": "^2.1.35",
     "morgan": "~1.9.1",
     "popper.js": "^1.16.1"
   },
   "description": "portfolio assignment",
   "main": "index.js",
-  "devDependencies": {},
   "author": "Fred Wong",
   "license": "ISC",
   "repository": {
