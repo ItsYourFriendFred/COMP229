@@ -1,0 +1,20 @@
+{
+    "contacts":
+    [
+        {
+            "Contact Name": "Fred Wong",
+            "Contact Number": "647-123-4567",
+            "Email Address": "fredw@example.com"
+        },
+        {
+            "Contact Name": "Bruce Wayne",
+            "Contact Number": "647-823-0545",
+            "Email Address": "brucew@example.com"
+        },
+        {
+            "Contact Name": "Clark Kent",
+            "Contact Number": "647-159-7530",
+            "Email Address": "clarkk@example.com"
+        }
+    ]
+}
