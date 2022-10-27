@@ -1,43 +1,27 @@
-/* 
-File Name: index.js
-Student Name: Fred Wong
-Student ID: 301199984 
-Date: October 3, 2022
-
-routes/index.js
-*/
-
-var express = require('express');
-var router = express.Router();
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Home'});
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const router = express_1.default.Router();
+router.get('/', function (req, res, next) {
+    res.render('index', { title: 'Home' });
 });
-
-/* GET home page, in case /home is attempted */
-router.get('/home', function(req, res, next) {
-  res.render('index', { title: 'Home'});
+router.get('/home', function (req, res, next) {
+    res.render('index', { title: 'Home' });
 });
-
-/* GET About Me page. */
-router.get('/about', function(req, res, next) {
-  res.render('about', { title: 'About'});
+router.get('/about', function (req, res, next) {
+    res.render('about', { title: 'About' });
 });
-
-/* GET Projects page. */
-router.get('/projects', function(req, res, next) {
-  res.render('projects', { title: 'Projects'});
+router.get('/projects', function (req, res, next) {
+    res.render('projects', { title: 'Projects' });
 });
-
-/* GET Services page. */
-router.get('/services', function(req, res, next) {
-  res.render('services', { title: 'Services'});
+router.get('/services', function (req, res, next) {
+    res.render('services', { title: 'Services' });
 });
-
-/* GET Contact page. */
-router.get('/contact', function(req, res, next) {
-  res.render('contact', { title: 'Contact'});
+router.get('/contact', function (req, res, next) {
+    res.render('contact', { title: 'Contact' });
 });
-
-module.exports = router;
+exports.default = router;
+//# sourceMappingURL=index.js.map
