@@ -6,22 +6,22 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
 router.get('/', function (req, res, next) {
-    res.render('index', { title: 'Home' });
+    res.render('index', { title: 'Home', page: 'home' });
 });
 router.get('/home', function (req, res, next) {
-    res.render('index', { title: 'Home' });
+    res.render('index', { title: 'Home', page: 'home' });
 });
 router.get('/about', function (req, res, next) {
-    res.render('about', { title: 'About' });
+    res.render('index', { title: 'About', page: 'about' });
 });
 router.get('/projects', function (req, res, next) {
-    res.render('projects', { title: 'Projects' });
+    res.render('index', { title: 'Projects', page: 'projects' });
 });
 router.get('/services', function (req, res, next) {
-    res.render('services', { title: 'Services' });
+    res.render('index', { title: 'Services', page: 'services' });
 });
 router.get('/contact', function (req, res, next) {
-    res.render('contact', { title: 'Contact' });
+    res.render('index', { title: 'Contact', page: 'contact' });
 });
 exports.default = router;
 //# sourceMappingURL=index.js.map

@@ -1,0 +1,48 @@
+<div class="container bg-secondary mt-5 pb-5 rounded-4">
+    <section id="services">
+        <h1 class="text-center"><%= title %></h1>
+    </section>
+    <!-- Carousel for Services Section -->
+    <div id="carouselServices" class="carousel slide carouselCustomSize1" data-bs-ride="carousel">
+        <!-- Carousel Slide Order Indicator -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselServices" data-bs-slide-to="0" class="active" aria-current="true"
+                aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselServices" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselServices" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <!-- Carousel Images -->
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+                <img src="./Assets/images/service1.png" class="d-block w-100" alt="Custom System Integration">
+                <div class="carousel-caption d-md-block">
+                    <h5 class="captionBG">Custom System Integration<br>I offer custom assembly of computer systems, selecting appropriate components for your budget and needs
+                    </h5>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="10000">
+                <img src="./Assets/images/service2.png" class="d-block w-100" alt="Technical Writing">
+                <div class="carousel-caption d-md-block">
+                    <h5 class="captionBG">Technical Writing<br>I am an experienced technical writer - capable of composing and editing scientific articles, SOPs, SRSes, & SDSes</h5>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="10000">
+                <img src="./Assets/images/service3.png" class="d-block w-100"
+                    alt="Cosmetic Formulation">
+                <div class="carousel-caption d-sm-block">
+                    <h5 class="captionBG">Cosmetic Formulation<br>I am an experienced cosmetic chemist - capable of formulating dyes, creams, cleansers, and other cosmetics</h5>
+                </div>
+            </div>
+        </div>
+        <!-- Carousel Left Arrow Control -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselServices" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <!-- Carousel Right Arrow Control -->
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselServices" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>

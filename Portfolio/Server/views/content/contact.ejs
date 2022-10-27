@@ -1,0 +1,57 @@
+<!-- Contact Me Section -->
+<div class="container bg-secondary mt-5 rounded-4">
+    <div class="row">
+        <!-- Contact Me Image Section -->
+        <div class="mt-3 col">
+            <div class="mx-auto text-center">
+                <figure class="figure">
+                    <img src="./Assets/images/contactMe.jpg" alt="Picture of Fred"
+                        class="img-fluid border border-light border-3 rounded-4">
+                    <figcaption class="figure-caption text-light text-center mt-2 fs-5">
+                        <a href="mailto:fred.wong19@gmail.com" class="email text-light">
+                            Email: fwong63@my.centennialcollege.ca
+                        </a>
+                        <br>Phone: 647-***-****
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+        <!-- Contact Me Written Section -->
+        <div class="px-4 col">
+            <section id="contact">
+                <h1 class="text-center aboutText"><%= title %> Me:</h1>
+                <form method="GET" action="/Home">
+                    <div class="form-group text-light">
+                        <label for="firstName">First Name</label>
+                        <input type="firstName" class="form-control" id="firstName" placeholder="Enter First Name"
+                            name="firstName" minlength="1" maxlength="120" size="57" required="required">
+                    </div>
+                    <div class="form-group text-light">
+                        <label for="lastName">Last Name</label>
+                        <input type="lastName" class="form-control" id="lastName" placeholder="Enter Last Name"
+                            name="lastName" minlength="1" maxlength="120" size="57" required="required">
+                    </div>
+                    <div class="form-group text-light">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter Email Address" name="email" minlength="1"
+                            maxlength="120" size="57" required="required">
+                    </div>
+                    <div class="form-group text-light">
+                        <label for="phone">Phone Number (Optional)</label>
+                        <input type="tel" class="form-control" id="phone" placeholder="Enter Phone Number (Optional)" name="phone" minlength="1"
+                            maxlength="21" size="57">
+                    </div>
+                    <div class="form-group text-light">
+                        <label for="comments">Additional Comments or Message</label>
+                        <textarea class="form-control" id="comments" rows="3" name="comments" minlength="3" maxlength="500"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary mx-2 mb-2" name="submit" value="Submit">Submit Form</button>
+                        <input class="btn btn-primary mx-2 mb-2" type="reset" name="reset" value="Clear Form">
+                    </div>
+                </form>
+            </section>
+        </div>
+        <div class="w-100"></div> <!-- Force a column break -->
+    </div>
+</div>

@@ -10,34 +10,34 @@ routes/index.js
 import express from 'express';
 const router = express.Router();
 
-/* GET home page. */
+/* GET (Display) home page. */
 router.get('/', function(req: express.Request, res: express.Response, next: express.NextFunction) {
-  res.render('index', { title: 'Home'});
+  res.render('index', { title: 'Home', page: 'home' });
 });
 
 /* GET home page, in case /home is attempted */
 router.get('/home', function(req: express.Request, res: express.Response, next: express.NextFunction) {
-  res.render('index', { title: 'Home'});
+  res.render('index', { title: 'Home', page: 'home' });
 });
 
 /* GET About Me page. */
 router.get('/about', function(req: express.Request, res: express.Response, next: express.NextFunction) {
-  res.render('about', { title: 'About'});
+  res.render('index', { title: 'About', page: 'about' });
 });
 
 /* GET Projects page. */
 router.get('/projects', function(req: express.Request, res: express.Response, next: express.NextFunction) {
-  res.render('projects', { title: 'Projects'});
+  res.render('index', { title: 'Projects', page: 'projects' });
 });
 
 /* GET Services page. */
 router.get('/services', function(req: express.Request, res: express.Response, next: express.NextFunction) {
-  res.render('services', { title: 'Services'});
+  res.render('index', { title: 'Services', page: 'services' });
 });
 
 /* GET Contact page. */
 router.get('/contact', function(req: express.Request, res: express.Response, next: express.NextFunction) {
-  res.render('contact', { title: 'Contact'});
+  res.render('index', { title: 'Contact', page: 'contact' });
 });
 
 export default router;
