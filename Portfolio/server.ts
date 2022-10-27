@@ -13,7 +13,7 @@ Date: October 3, 2022
  * Module dependencies.
  */
 
-import app from './app';
+import app from './Server/Config/app';
 //const debug = require('debug')('portfolio:server');
 import debug from 'debug';
 debug('portfolio:server');
