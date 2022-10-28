@@ -33,6 +33,7 @@ const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const morgan_1 = __importDefault(require("morgan"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const index_1 = __importDefault(require("../routes/index"));
+const business_contacts_1 = __importDefault(require("../routes/business-contacts"));
 const users_1 = __importDefault(require("../routes/users"));
 const app = (0, express_1.default)();
 const DBConfig = __importStar(require("./db"));
@@ -53,6 +54,7 @@ app.use((0, cookie_parser_1.default)());
 app.use(express_1.default.static(path_1.default.join(__dirname, '../../Client')));
 app.use(express_1.default.static(path_1.default.join(__dirname, '../../node_modules')));
 app.use('/', index_1.default);
+app.use('/', business_contacts_1.default);
 app.use('/users', users_1.default);
 app.use(function (req, res, next) {
     next((0, http_errors_1.default)(404));

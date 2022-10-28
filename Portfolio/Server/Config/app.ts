@@ -15,10 +15,11 @@ import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 
 // Import DB package
-import mongoose, { mongo } from 'mongoose';
+import mongoose from 'mongoose';
 
 // Impoer the router data
 import indexRouter from '../routes/index';
+import businessContactsRouter from '../routes/business-contacts';
 import usersRouter from '../routes/users';
 
 const app = express();
@@ -49,6 +50,7 @@ app.use(express.static(path.join(__dirname, '../../Client')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
 
 app.use('/', indexRouter);
+app.use('/', businessContactsRouter)
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
