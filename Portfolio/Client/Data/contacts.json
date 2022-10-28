@@ -2,19 +2,19 @@
     "contacts":
     [
         {
-            "Contact Name": "Fred Wong",
-            "Contact Number": "647-123-4567",
-            "Email Address": "fredw@example.com"
+            "ContactName": "Fred Wong",
+            "ContactNumber": "647-123-4567",
+            "EmailAddress": "fredw@example.com"
         },
         {
-            "Contact Name": "Bruce Wayne",
-            "Contact Number": "647-823-0545",
-            "Email Address": "brucew@example.com"
+            "ContactName": "Bruce Wayne",
+            "ContactNumber": "647-823-0545",
+            "EmailAddress": "brucew@example.com"
         },
         {
             "Contact Name": "Clark Kent",
-            "Contact Number": "647-159-7530",
-            "Email Address": "clarkk@example.com"
+            "ContactNumber": "647-159-7530",
+            "EmailAddress": "clarkk@example.com"
         }
     ]
 }
