@@ -14,10 +14,28 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 
+// Import DB package
+import mongoose, { mongo } from 'mongoose';
+
+// Impoer the router data
 import indexRouter from '../routes/index';
 import usersRouter from '../routes/users';
 
 const app = express();
+
+// Complete the DB Configuration
+import * as DBConfig from './db';
+mongoose.connect(DBConfig.LocalURI);
+const db = mongoose.connection; // Alias for the Mongoose connection
+
+// Listen for Connections or Errors
+db.on("open", function () {
+  console.log(`Connected to MongoDB at: ${DBConfig.HostName}`);
+});
+
+db.on("error", function () {
+  console.error(`Connection Error`)
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, '../views'));
