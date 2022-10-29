@@ -17,9 +17,25 @@ import logger from 'morgan';
 // Import DB package
 import mongoose from 'mongoose';
 
-// Impoer the router data
-import indexRouter from '../routes/index';
-import businessContactsRouter from '../routes/business-contacts';
+// Import Authentication modules
+import session from 'express-session';
+import passport from 'passport';
+import passportLocal from 'passport-local';
+import flash from 'connect-flash';
+
+// Import modules for JWT support
+import cors from 'cors';
+
+// Define authentication objects
+let localStrategy = passportLocal.Strategy; // Alias
+
+// Import User model for authentication
+import User from '../Models/user';
+
+// Import the router data
+import indexRouter from '../routes/index';  // Top-level routes
+import businessContactsRouter from '../routes/business-contacts';  // business-contact routes
+import authRouter from '../routes/auth';  // Authentication routes
 import usersRouter from '../routes/users';
 
 const app = express();
@@ -49,8 +65,34 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../Client')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
 
+// Configure cors (Adds CORS (cross-origin resource sharing) to the config)
+app.use(cors());
+
+// Set up express session for authentication
+app.use(session({
+  secret: DBConfig.Secret,
+  saveUninitialized: false,
+  resave: false
+}));
+
+// Set up Flash for authentication
+app.use(flash());
+
+// Initialize Passport and session
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Implement the Authentication Strategy
+passport.use(User.createStrategy());
+
+// Set up User serialization and deserialization (encoding and decoding)
+passport.serializeUser(User.serializeUser());   // IMPORTANT: Modified index.d.ts in @types passport-local-mongoose Line 38 serializeUser(): (user: T ... & Line 94 plugin: (schema: PassportLocalSchema ...
+passport.deserializeUser(User.deserializeUser());
+
+// Use routes
 app.use('/', indexRouter);
-app.use('/', businessContactsRouter)
+app.use('/', businessContactsRouter);
+app.use('/', authRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
