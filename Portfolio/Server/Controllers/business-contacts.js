@@ -47,6 +47,20 @@ function ProcessAddPage(req, res, next) {
 }
 exports.ProcessAddPage = ProcessAddPage;
 function ProcessEditPage(req, res, next) {
+    let id = req.params.id;
+    let updatedContact = new contact_1.default({
+        "_id": id,
+        "ContactName": req.body.contactName,
+        "ContactNumber": req.body.contactNumber,
+        "EmailAddress": req.body.emailAddress
+    });
+    contact_1.default.updateOne({ _id: id }, updatedContact, function (err) {
+        if (err) {
+            console.error(err);
+            res.end(err);
+        }
+        res.redirect('/business-contacts');
+    });
 }
 exports.ProcessEditPage = ProcessEditPage;
 function ProcessDeletePage(req, res, next) {

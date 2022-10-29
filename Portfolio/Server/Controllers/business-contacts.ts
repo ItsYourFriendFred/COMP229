@@ -56,6 +56,28 @@ export function ProcessAddPage(req: express.Request, res: express.Response, next
 }
 
 export function ProcessEditPage(req: express.Request, res: express.Response, next: express.NextFunction): void {
+    let id = req.params.id;
+
+    // Instantiate a new Contact to edit
+    let updatedContact = new Contact(
+        {
+            "_id": id,
+            "ContactName": req.body.contactName,
+            "ContactNumber": req.body.contactNumber,
+            "EmailAddress": req.body.emailAddress
+        }
+    );
+
+    // Update the business contact in the database
+    Contact.updateOne({_id: id}, updatedContact, function(err: ErrorCallback) {
+        if (err) {
+            console.error(err);
+            res.end(err);
+        }
+
+        // Contact has been edited -> Refresh business-contacts
+        res.redirect('/business-contacts');
+    });
 }
 
 export function ProcessDeletePage(req: express.Request, res: express.Response, next: express.NextFunction): void {
