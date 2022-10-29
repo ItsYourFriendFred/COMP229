@@ -6,12 +6,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProcessLogoutPage = exports.ProcessRegisterPage = exports.ProcessLoginPage = exports.DisplayRegisterPage = exports.DisplayLoginPage = void 0;
 const passport_1 = __importDefault(require("passport"));
 const user_1 = __importDefault(require("../Models/user"));
+const Util_1 = require("../Util");
 function DisplayLoginPage(req, res, next) {
-    res.render('index', { title: 'Login', page: 'login', messages: req.flash('loginMessage'), displayName: '' });
+    if (!req.user) {
+        return res.render('index', { title: 'Login', page: 'login', messages: req.flash('loginMessage'), displayName: (0, Util_1.UserDisplayName)(req) });
+    }
+    return res.redirect('/business-contacts');
 }
 exports.DisplayLoginPage = DisplayLoginPage;
 function DisplayRegisterPage(req, res, next) {
-    res.render('index', { title: 'Register', page: 'register', messages: req.flash('registerMessage'), displayName: '' });
+    if (!req.user) {
+        return res.render('index', { title: 'Register', page: 'register', messages: req.flash('registerMessage'), displayName: (0, Util_1.UserDisplayName)(req) });
+    }
+    return res.redirect('/business-contacts');
 }
 exports.DisplayRegisterPage = DisplayRegisterPage;
 function ProcessLoginPage(req, res, next) {
@@ -31,7 +38,7 @@ function ProcessLoginPage(req, res, next) {
             }
             return res.redirect('/business-contacts');
         });
-    })(res, res, next);
+    })(req, res, next);
 }
 exports.ProcessLoginPage = ProcessLoginPage;
 function ProcessRegisterPage(req, res, next) {
@@ -53,6 +60,7 @@ function ProcessRegisterPage(req, res, next) {
             return res.redirect('register');
         }
         return passport_1.default.authenticate('local')(req, res, function () {
+            console.log(req.body.password);
             return res.redirect('/business-contacts');
         });
     });
