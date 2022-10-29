@@ -15,6 +15,11 @@
             "Contact Name": "Clark Kent",
             "ContactNumber": "647-159-7530",
             "EmailAddress": "clarkk@example.com"
+        },
+        {
+            "ContactName": "May Wong",
+            "ContactNumber": "647-455-1234",
+            "EmailAddress": "mayw@example.com"
         }
     ]
 }
