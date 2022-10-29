@@ -25,7 +25,31 @@ export function DisplayRegisterPage(req: express.Request, res: express.Response,
 }
 
 // Processing Functions
-export function ProcessLoginPage(req: express.Request, res: express.Response, next: express.NextFunction){
+export function ProcessLoginPage(req: express.Request, res: express.Response, next: express.NextFunction) {
+    passport.authenticate('local', function (err, user, info) {
+        // Are there server errors?
+        if (err) {
+            console.error(err);
+            res.end(err);
+        }
+
+        // Are there login errors?
+        if (!user) {
+            req.flash('loginMessage', 'Authentication Error!');
+            return res.redirect('/login');
+        }
+
+        // No issues - Proper username and password
+        req.logIn(user, function(err) {
+            // Are there errors? E.g., DB errors
+            if (err) {
+                console.error(err);
+                res.end(err);
+            }
+
+            return res.redirect('/business-contacts');
+        });
+    })(res, res, next);
 }
 
 export function ProcessRegisterPage(req: express.Request, res: express.Response, next: express.NextFunction){
