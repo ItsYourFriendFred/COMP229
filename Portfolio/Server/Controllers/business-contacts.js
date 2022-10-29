@@ -17,12 +17,33 @@ function DisplayBusinessContacts(req, res, next) {
 }
 exports.DisplayBusinessContacts = DisplayBusinessContacts;
 function DisplayAddPage(req, res, next) {
+    res.render('index', { title: 'Add', page: 'edit', contact: '', displayName: (0, Util_1.UserDisplayName)(req) });
 }
 exports.DisplayAddPage = DisplayAddPage;
 function DisplayEditPage(req, res, next) {
+    let id = req.params.id;
+    contact_1.default.findById(id, {}, {}, function (err, contactToEdit) {
+        if (err) {
+            console.error(err);
+            res.end(err);
+        }
+        res.render('index', { title: 'Edit', page: 'edit', contact: contactToEdit, displayName: (0, Util_1.UserDisplayName)(req) });
+    });
 }
 exports.DisplayEditPage = DisplayEditPage;
 function ProcessAddPage(req, res, next) {
+    let newContact = new contact_1.default({
+        "ContactName": req.body.contactName,
+        "ContactNumber": req.body.contactNumber,
+        "EmailAddress": req.body.emailAddress
+    });
+    contact_1.default.create(newContact, function (err) {
+        if (err) {
+            console.error(err);
+            res.end(err);
+        }
+        res.redirect('/business-contacts');
+    });
 }
 exports.ProcessAddPage = ProcessAddPage;
 function ProcessEditPage(req, res, next) {

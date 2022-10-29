@@ -11,10 +11,8 @@ router.get('/business-contacts', AuthGuard, DisplayBusinessContacts);
 // Display Add Page
 router.get('/add', AuthGuard, DisplayAddPage);
 
-
 // Display Edit Page
 router.get('/edit/:id', AuthGuard, DisplayEditPage);
-
 
 // Process Add Page
 router.post('/add', AuthGuard, ProcessAddPage);

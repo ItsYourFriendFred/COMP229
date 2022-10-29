@@ -19,9 +19,9 @@
                     <% for(let count = 0; count < contacts.length; count++ ) { %>
                     <tr>
                         <th scope="row" class="text-center"><%= count + 1 %> </th>
-                        <td><%= contacts[count].get('Contact Name') %></td>
-                        <td><%= contacts[count].get('Contact Number') %></td>
-                        <td><%= contacts[count].get('Email Address') %></td>
+                        <td><%= contacts[count].ContactName %></td>
+                        <td><%= contacts[count].ContactNumber %></td>
+                        <td><%= contacts[count].EmailAddress %></td>
                         <td class="text-center"><a href="/edit/<%= contacts[count]._id %>" class="btn btn-primary btn-sm edit"><i class="fa-solid fa-pen-to-square"></i> Edit</a></td>
                         <td class="text-center"><a href="/delete/<%= contacts[count]._id %>" class="btn btn-danger btn-sm delete"><i class="fa-solid fa-trash-can"></i> Delete</a></td>
                     </tr>
