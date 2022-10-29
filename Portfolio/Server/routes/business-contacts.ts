@@ -11,7 +11,7 @@ Routes handling requests related to business-contacts access and processing
 import express from 'express';
 const router = express.Router();
 
-import { AuthGuard } from '../Util';
+import { AuthGuard, EditGuard } from '../Util';
 
 import { DisplayAddPage, DisplayBusinessContacts, DisplayEditPage, ProcessAddPage, ProcessDeletePage, ProcessEditPage } from '../Controllers/business-contacts'
 
@@ -22,6 +22,7 @@ router.get('/business-contacts', AuthGuard, DisplayBusinessContacts);
 router.get('/add', AuthGuard, DisplayAddPage);
 
 // Display Edit Page
+router.get('/edit/', AuthGuard, EditGuard);
 router.get('/edit/:id', AuthGuard, DisplayEditPage);
 
 // Process Add Page

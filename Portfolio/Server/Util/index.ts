@@ -26,3 +26,12 @@ export function AuthGuard(req: express.Request, res: express.Response, next: exp
     }
     next();
 }
+
+export function EditGuard(req: express.Request, res: express.Response, next: express.NextFunction): void {
+    if(!req.isAuthenticated()) {
+        return res.redirect('/login')
+    }
+    else {
+        return res.redirect('/business-contacts')
+    };
+}

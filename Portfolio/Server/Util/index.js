@@ -9,7 +9,7 @@ Last Updated: October 26, 2022
 Utility functions to be used throughout the application
 */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AuthGuard = exports.UserDisplayName = void 0;
+exports.EditGuard = exports.AuthGuard = exports.UserDisplayName = void 0;
 function UserDisplayName(req) {
     if (req.user) {
         let user = req.user;
@@ -25,4 +25,14 @@ function AuthGuard(req, res, next) {
     next();
 }
 exports.AuthGuard = AuthGuard;
+function EditGuard(req, res, next) {
+    if (!req.isAuthenticated()) {
+        return res.redirect('/login');
+    }
+    else {
+        return res.redirect('/business-contacts');
+    }
+    ;
+}
+exports.EditGuard = EditGuard;
 //# sourceMappingURL=index.js.map

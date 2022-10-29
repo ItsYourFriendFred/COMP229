@@ -18,6 +18,7 @@ const Util_1 = require("../Util");
 const business_contacts_1 = require("../Controllers/business-contacts");
 router.get('/business-contacts', Util_1.AuthGuard, business_contacts_1.DisplayBusinessContacts);
 router.get('/add', Util_1.AuthGuard, business_contacts_1.DisplayAddPage);
+router.get('/edit/', Util_1.AuthGuard, Util_1.EditGuard);
 router.get('/edit/:id', Util_1.AuthGuard, business_contacts_1.DisplayEditPage);
 router.post('/add', Util_1.AuthGuard, business_contacts_1.ProcessAddPage);
 router.post('/edit/:id', Util_1.AuthGuard, business_contacts_1.ProcessEditPage);
