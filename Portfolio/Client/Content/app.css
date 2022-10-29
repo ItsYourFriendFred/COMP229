@@ -143,3 +143,7 @@ body{
     width: 100%;
 }
 /* End of CSS Provided from Course Shell Example */
+
+.loggedInFooter {
+  background-color: #2596be;
+}

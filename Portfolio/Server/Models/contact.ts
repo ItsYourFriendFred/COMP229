@@ -10,7 +10,7 @@ const ContactSchema = new Schema(
         EmailAddress: String
     },
     {
-        collection: "contact"
+        collection: "contacts"
     }
 );
 

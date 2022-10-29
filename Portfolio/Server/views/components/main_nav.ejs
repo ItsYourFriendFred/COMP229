@@ -38,11 +38,12 @@
           </li>
 
           <% if(displayName) { %>
+            <li class="navbar-text">|</li>
             <li class="nav-item">
               <a class="nav-link" href="/logout"><i class="fa-solid fa-lg fa-right-from-bracket"></i> Log out</a>
             </li>
             <li class="nav-item"> 
-              <a class="nav-link" href="#">Logged in as: <%= displayName %></a>
+              <a class="nav-link active">Logged in as: <%= displayName %></a>
             </li>
           <% } else { %>
             <li class="nav-item">
