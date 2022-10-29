@@ -36,7 +36,11 @@
         <% } %>  
 
         <a href="/business-contacts" id="cancelButton" type="button" class="btn btn-warning"><i class="fas fa-undo fa-lg"></i> Cancel</a>
-      
+        
+        <% if(title == "Edit") { %>
+        <a href="/delete/<%= contact._id %>" class="btn btn-danger delete buttonMargin2"><i class="fa-solid fa-trash-can"></i> Delete Business Contact</a>
+        <% } else {%>
+        <% } %> 
       </form>
 
     </div>

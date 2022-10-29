@@ -20,7 +20,9 @@ Miscellaneous JS client-side functions go here
             if(!confirm("Are you sure?"))
             {
                 event.preventDefault();
-                location.href = "/business-contacts"
+                if (!(window.location.href.indexOf('edit') > -1) ){
+                    location.href = "/business-contacts";
+                }
             }
         });
     }
