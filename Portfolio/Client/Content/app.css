@@ -147,3 +147,11 @@ body{
 .loggedInFooter {
   background-color: #2596be;
 }
+
+.businessTable {
+  margin-top: 1em;
+}
+
+.buttonMargin {
+  margin-right: 1em;
+}

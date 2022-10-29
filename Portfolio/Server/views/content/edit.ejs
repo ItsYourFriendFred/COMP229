@@ -1,3 +1,4 @@
+<!-- Edit Business Contacts (when logged in) Section -->
 <div class="container">
     <h1 class="col-lg-6 col-md-10 col-sm-10"><%= title %> Business Contacts</h1>
     <hr>
@@ -27,10 +28,11 @@
         aria-label="Email Address" aria-describedby="Email Address Input" required>
         </div>
         
+        <!-- Change button to Add or Edit depending on title object -->
         <% if(title == "Edit") { %>
-        <button id="editButton" type="submit" class="btn btn-primary"><i class="fas fa-edit fa-lg"></i> Edit</button>
+        <button id="editButton" type="submit" class="btn btn-primary buttonMargin"><i class="fas fa-edit fa-lg"></i> Edit</button>
         <% } else {%>
-        <button id="addButton" type="submit" class="btn btn-primary"><i class="fas fa-plus-circle fa-lg"></i> Add</button>
+        <button id="addButton" type="submit" class="btn btn-primary buttonMargin"><i class="fas fa-plus-circle fa-lg"></i> Add</button>
         <% } %>  
 
         <a href="/business-contacts" id="cancelButton" type="button" class="btn btn-warning"><i class="fas fa-undo fa-lg"></i> Cancel</a>
