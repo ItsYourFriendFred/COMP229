@@ -1,4 +1,13 @@
 "use strict";
+/*!
+File Name: Server/Models/contact.js
+Student Name: Fred Wong
+Student ID: 301199984
+Date: October 25, 2022
+Last Updated: October 26
+
+Defining a schema for a business contact for MongoDB
+*/
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -12,6 +21,7 @@ const ContactSchema = new Schema({
 }, {
     collection: "contacts"
 });
+ContactSchema.index({ ContactName: 1 });
 const Model = mongoose_1.default.model("Business_Contact", ContactSchema);
 exports.default = Model;
 //# sourceMappingURL=contact.js.map

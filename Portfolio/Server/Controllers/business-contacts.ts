@@ -1,3 +1,12 @@
+/*! 
+File Name: Server/Controllers/business-contacts.ts
+Student Name: Fred Wong
+Student ID: 301199984 
+Date: October 26, 2022
+Last Updated: October 26
+
+Callback functions corresponding to routes handling business-contact (database) requests
+*/
 import express from 'express';
 import { CallbackError } from 'mongoose';
 
@@ -12,7 +21,7 @@ export function DisplayBusinessContacts(req: express.Request, res: express.Respo
             res.end(err);
         }
         res.render('index', {title: 'Business Contacts', page: 'business-contacts', contacts: contactCollection, displayName: UserDisplayName(req)});
-    });
+    }).sort('ContactName').collation({ locale: 'en', strength: 2 });
 }
 
 export function DisplayAddPage(req: express.Request, res: express.Response, next: express.NextFunction): void {

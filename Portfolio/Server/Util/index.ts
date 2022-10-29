@@ -1,10 +1,11 @@
-/* 
-File Name: index.ts
+/*! 
+File Name: Server/Util/index.js
 Student Name: Fred Wong
 Student ID: 301199984 
 Date: October 3, 2022
+Last Updated: October 26, 2022
 
-Util/index.ts
+Utility functions to be used throughout the application
 */
 
 import express from 'express';

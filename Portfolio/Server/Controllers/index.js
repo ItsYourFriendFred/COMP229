@@ -1,4 +1,13 @@
 "use strict";
+/*!
+File Name: Server/Controllers/index.ts
+Student Name: Fred Wong
+Student ID: 301199984
+Date: October 25, 2022
+Last Updated: October 26
+
+Callback functions corresponding to routes handling index.js (primary view) requests
+*/
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DisplayContactPage = exports.DisplayServicesPage = exports.DisplayProjectsPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
 const Util_1 = require("../Util");

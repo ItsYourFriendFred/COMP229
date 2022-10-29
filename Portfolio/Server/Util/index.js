@@ -1,4 +1,13 @@
 "use strict";
+/*!
+File Name: Server/Util/index.js
+Student Name: Fred Wong
+Student ID: 301199984
+Date: October 3, 2022
+Last Updated: October 26, 2022
+
+Utility functions to be used throughout the application
+*/
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthGuard = exports.UserDisplayName = void 0;
 function UserDisplayName(req) {

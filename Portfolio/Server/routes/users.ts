@@ -1,3 +1,13 @@
+/*! 
+File Name: Server/routes/users.js
+Student Name: Fred Wong
+Student ID: 301199984 
+Date: October 3, 2022
+Last Updated: October 26
+
+Currently unused section; for later use when roles are implemented
+*/
+
 import express from 'express';
 const router = express.Router();
 

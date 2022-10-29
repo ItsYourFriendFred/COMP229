@@ -1,10 +1,11 @@
-/* 
-File Name: app.js
+/*! 
+File Name: Server/Config/app.js
 Student Name: Fred Wong
 Student ID: 301199984 
 Date: October 3, 2022
+Last Updated: October 26
 
-/app.js
+Main business logic of the web application
 */
 
 // Installed third-party packages

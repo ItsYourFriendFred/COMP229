@@ -1,4 +1,13 @@
 "use strict";
+/*!
+File Name: Server/routes/business-contacts.js
+Student Name: Fred Wong
+Student ID: 301199984
+Date: October 25, 2022
+Last Updated: October 26
+
+Routes handling requests related to business-contacts access and processing
+*/
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };

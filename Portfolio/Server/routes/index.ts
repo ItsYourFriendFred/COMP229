@@ -1,10 +1,11 @@
-/* 
-File Name: index.js
+/*! 
+File Name: Server/routes/index.js
 Student Name: Fred Wong
 Student ID: 301199984 
 Date: October 3, 2022
+Last Updated: October 26
 
-routes/index.js
+Routes handling requests related to public views
 */
 
 import express from 'express';

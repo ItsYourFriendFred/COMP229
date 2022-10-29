@@ -1,10 +1,11 @@
-/* 
-File Name: app.js
+/*! 
+File Name: Client/Scripts/app.js
 Student Name: Fred Wong
 Student ID: 301199984 
 Date: October 3, 2022
+Last Updated: October 26
 
-public/Scripts/app.js
+Miscellaneous JS client-side functions go here
 */
 
 // IIFE -- Immediately Invoked Function Expression
@@ -14,27 +15,7 @@ public/Scripts/app.js
     {
         console.log("App Started...");
 
-        // // use AJAX to read JSON file
-
-        // // Step 1: Create a new XHR object
-        // let XHR = new XMLHttpRequest();
-
-        // // Step 2: Create the request
-        // XHR.open("GET", "../Data/data.json");
-
-        // // Step 3: Send the request
-        // XHR.send();
-
-        // // Step 4: create an event listener/handler
-        // XHR.addEventListener("readystatechange", function()
-        // {
-        //     if(XHR.readyState == 4 && XHR.status == 200)
-        //     {
-        //         console.log("JSON Data:");
-        //         console.log(XHR.responseText);
-        //     }
-        // });
-
+        // Function to confirm deletion of business contact upon clicking Delete button
         $("a.delete").on("click", function(event){
             if(!confirm("Are you sure?"))
             {

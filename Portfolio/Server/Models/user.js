@@ -1,4 +1,13 @@
 "use strict";
+/*!
+File Name: Server/Models/user.js
+Student Name: Fred Wong
+Student ID: 301199984
+Date: October 25, 2022
+Last Updated: October 26
+
+Defining a schema for a user for MongoDB
+*/
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
