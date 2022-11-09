@@ -20,26 +20,30 @@ export function DisplayBusinessContacts(req: express.Request, res: express.Respo
             console.error(err);
             res.end(err);
         }
-        res.render('index', {title: 'Business Contacts', page: 'business-contacts', contacts: contactCollection, displayName: UserDisplayName(req)});
-    }).sort('ContactName').collation({ locale: 'en', strength: 2 });
+        //     res.render('index', {title: 'Business Contacts', page: 'business-contacts', contacts: contactCollection, displayName: UserDisplayName(req)});
+        // }).sort('ContactName').collation({ locale: 'en', strength: 2 });
+        res.json({ success: true, message: 'Business-Contacts Displayed Succesfully', contacts: contactCollection, user: req.user });
+    });
 }
 
 export function DisplayAddPage(req: express.Request, res: express.Response, next: express.NextFunction): void {
-    res.render('index', { title: 'Add', page: 'edit', contact: '', displayName: UserDisplayName(req)})
+    // res.render('index', { title: 'Add', page: 'edit', contact: '', displayName: UserDisplayName(req)})
+    res.json({ success: true, message: 'Add page displayed succesfully' });
 }
 
 export function DisplayEditPage(req: express.Request, res: express.Response, next: express.NextFunction): void {
     let id = req.params.id;
-    
+
     // Pass the id to the DB and read the contact into the edit page
-    Contact.findById(id, {}, {}, function(err, contactToEdit) {
-        if(err){
+    Contact.findById(id, {}, {}, function (err, contactToEdit) {
+        if (err) {
             console.error(err);
             res.end(err);
         }
 
         // Show the Edit view with the data
-        res.render('index', { title: 'Edit', page: 'edit', contact: contactToEdit, displayName: UserDisplayName(req)})
+        // res.render('index', { title: 'Edit', page: 'edit', contact: contactToEdit, displayName: UserDisplayName(req)})
+        res.json({ success: true, message: 'Edit page displayed succesfully', contacts: contactToEdit });
     });
 }
 
@@ -61,7 +65,8 @@ export function ProcessAddPage(req: express.Request, res: express.Response, next
         }
 
         // New Contact has been added -> Refresh business-contacts
-        res.redirect('/business-contacts');
+        // res.redirect('/business-contacts');  // No longer redirecting on the back-end
+        res.json({success: true, message: 'Successfully added business contact!', contact: newContact});
     })
 }
 
@@ -86,7 +91,8 @@ export function ProcessEditPage(req: express.Request, res: express.Response, nex
         }
 
         // Contact has been edited -> Refresh business-contacts
-        res.redirect('/business-contacts');
+        // res.redirect('/business-contacts');  // No longer redirecting on the back-end
+        res.json({success: true, message: 'Successfully edited business contact!', contact: updatedContact});
     });
 }
 
@@ -101,6 +107,7 @@ export function ProcessDeletePage(req: express.Request, res: express.Response, n
         }
 
         // Delete was successful
-        res.redirect('/business-contacts');
+        // res.redirect('/business-contacts');  // No longer redirecting on the back-end
+        res.json({success: true, message: 'Successfully deleted business contact!'});
     });
 }

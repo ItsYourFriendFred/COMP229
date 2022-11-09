@@ -16,11 +16,14 @@ import passport from 'passport';
 // Include User model for authentication functions
 import User from '../Models/user';
 
-// Import DisplayName Utility method
-import { UserDisplayName } from '../Util';
+// Import JWT Utility Function
+import { GenerateToken } from '../Util';
 
-// Display Functions
-export function DisplayLoginPage(req: express.Request, res: express.Response, next: express.NextFunction) {
+// Import DisplayName Utility method  // Not needed if a front-end is used
+// import { UserDisplayName } from '../Util';
+
+// Display Functions  // Not needed if a front-end is used
+/* export function DisplayLoginPage(req: express.Request, res: express.Response, next: express.NextFunction) {
     if (!req.user) {
         return res.render('index', { title: 'Login', page: 'login', messages: req.flash('loginMessage'), displayName: UserDisplayName(req) });
     }
@@ -33,6 +36,9 @@ export function DisplayRegisterPage(req: express.Request, res: express.Response,
     }
     return res.redirect('/business-contacts');
 }
+*/  // Display functions not needed if a front-end is used
+
+
 
 // Processing Functions
 export function ProcessLoginPage(req: express.Request, res: express.Response, next: express.NextFunction) {
@@ -45,8 +51,9 @@ export function ProcessLoginPage(req: express.Request, res: express.Response, ne
 
         // Are there login errors?
         if (!user) {
-            req.flash('loginMessage', 'Authentication Error!');
-            return res.redirect('/login');
+            // req.flash('loginMessage', 'Authentication Error!');  // Not needed due to front-end change when there's no user anymore
+            // return res.redirect('/login');
+            return res.json({ sucess: false, message: 'Error: Authentication Failed' })
         }
 
         // No issues - Proper username and password
@@ -56,8 +63,19 @@ export function ProcessLoginPage(req: express.Request, res: express.Response, ne
                 console.error(err);
                 res.end(err);
             }
-            return res.redirect('/business-contacts');
+            // return res.redirect('/business-contacts');  // To be done on the front-end now
+            const authToken = GenerateToken(user);
+
+            return res.json({
+                success: true, message: 'User logged in successfully!', user: {
+                    id: user._id,
+                    DisplayName: user.DisplayName,
+                    username: user.username,
+                    EmailAddress: user.EmailAddress
+                }, token: authToken
+            });
         });
+        return;
     })(req, res, next);
 }
 
@@ -74,22 +92,25 @@ export function ProcessRegisterPage(req: express.Request, res: express.Response,
         if (err) {
             if (err.name == "UserExistsError") {
                 console.error('Error: User Already Exists!');
-                req.flash('registerMessage', 'Registration Error!');
+                // req.flash('registerMessage', 'Registration Error!');
             }
             else {
                 console.error(err.name); // Other error
-                req.flash('registerMessage', 'Server Error!');
+                // req.flash('registerMessage', 'Server Error!');
             }
-            return res.redirect('register');
+            // return res.redirect('register');  // Since no redirecting on the back-end
+            return res.json({success: false, message: 'Error: Registration failed!'});
         }
 
         // If everything is okay; i.e, user hase been registered
 
         // Automatically log in the user
-        return passport.authenticate('local')(req, res, function () {
+        /* return passport.authenticate('local')(req, res, function () {
             console.log(req.body.password);
             return res.redirect('/business-contacts');
-        });
+        }); */  // The front-end has to do everything here that must happen now
+
+        return res.json({success: true, message: 'User registered successfully!'});
     });
 }
 
@@ -102,5 +123,6 @@ export function ProcessLogoutPage(req: express.Request, res: express.Response, n
         console.log("User has logged out.");
     });
 
-    res.redirect('/login');
+    // res.redirect('/login');  // Not redirecting in backend anymore
+    res.json({success: true, message: 'User logged out successfully!'});
 }

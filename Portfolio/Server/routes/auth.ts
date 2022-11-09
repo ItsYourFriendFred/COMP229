@@ -12,13 +12,13 @@ import express from 'express';
 const router = express.Router();
 
 // Import the Controller Module
-import { DisplayRegisterPage, ProcessLogoutPage, DisplayLoginPage, ProcessLoginPage, ProcessRegisterPage } from '../Controllers/auth';
+import { ProcessLogoutPage, ProcessLoginPage, ProcessRegisterPage } from '../Controllers/auth';
 
 /* GET (Display) Login page. */
-router.get('/login', DisplayLoginPage);
+// router.get('/login', DisplayLoginPage);  // Not needed if a front-end is used
 
 /* Display Register page. */
-router.get('/register', DisplayRegisterPage);
+// router.get('/register', DisplayRegisterPage);  // Not needed if a front-end is used
 
 
 /* Process Login page. */

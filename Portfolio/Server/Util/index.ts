@@ -10,6 +10,10 @@ Utility functions to be used throughout the application
 
 import express from 'express';
 
+// Enable JWT
+import jwt from 'jsonwebtoken';
+import * as DBConfig from '../Config/db';
+
 // Convenience function to return the DisplayName of the User
 export function UserDisplayName(req: express.Request): string {
     if(req.user) {
@@ -34,4 +38,19 @@ export function EditGuard(req: express.Request, res: express.Response, next: exp
     else {
         return res.redirect('/business-contacts')
     };
+}
+
+export function GenerateToken(user: UserDocument): string {
+    const payload = {
+        id: user._id,
+        DisplayName: user.DisplayName,
+        username: user.username,
+        EmailAddress: user.EmailAddress
+    }
+
+    const jwtOptions = {
+        expiresIn: 604800  // 1 week
+    }
+
+    return jwt.sign(payload, DBConfig.Secret, jwtOptions);
 }

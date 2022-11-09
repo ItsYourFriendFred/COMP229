@@ -40,18 +40,19 @@ const express_1 = __importDefault(require("express"));
 const path_1 = __importDefault(require("path"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const morgan_1 = __importDefault(require("morgan"));
+const cors_1 = __importDefault(require("cors"));
+const passport_jwt_1 = __importDefault(require("passport-jwt"));
+let JWTStrategy = passport_jwt_1.default.Strategy;
+let ExtractJWT = passport_jwt_1.default.ExtractJwt;
 const mongoose_1 = __importDefault(require("mongoose"));
 const express_session_1 = __importDefault(require("express-session"));
 const passport_1 = __importDefault(require("passport"));
 const passport_local_1 = __importDefault(require("passport-local"));
 const connect_flash_1 = __importDefault(require("connect-flash"));
-const cors_1 = __importDefault(require("cors"));
 let localStrategy = passport_local_1.default.Strategy;
 const user_1 = __importDefault(require("../Models/user"));
-const index_1 = __importDefault(require("../routes/index"));
 const business_contacts_1 = __importDefault(require("../routes/business-contacts"));
 const auth_1 = __importDefault(require("../routes/auth"));
-const users_1 = __importDefault(require("../routes/users"));
 const app = (0, express_1.default)();
 const DBConfig = __importStar(require("./db"));
 mongoose_1.default.connect(DBConfig.RemoteURI || DBConfig.LocalURI);
@@ -82,10 +83,22 @@ app.use(passport_1.default.session());
 passport_1.default.use(user_1.default.createStrategy());
 passport_1.default.serializeUser(user_1.default.serializeUser());
 passport_1.default.deserializeUser(user_1.default.deserializeUser());
-app.use('/', index_1.default);
-app.use('/', business_contacts_1.default);
-app.use('/', auth_1.default);
-app.use('/users', users_1.default);
+let jwtOptions = {
+    jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
+    secretOrKey: DBConfig.Secret
+};
+let strategy = new JWTStrategy(jwtOptions, function (jwt_payload, done) {
+    user_1.default.findById(jwt_payload.id)
+        .then(user => {
+        return done(null, user);
+    })
+        .catch(err => {
+        return done(err, false);
+    });
+});
+passport_1.default.use(strategy);
+app.use('/api', auth_1.default);
+app.use('/api', passport_1.default.authenticate('jwt', { session: false }), business_contacts_1.default);
 app.use(function (req, res, next) {
     next((0, http_errors_1.default)(404));
 });
