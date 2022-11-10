@@ -9,7 +9,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppRoutingModule = void 0;
 const core_1 = require("@angular/core");
 const router_1 = require("@angular/router");
-const routes = [];
+const about_component_1 = require("./pages/about/about.component");
+const contact_component_1 = require("./pages/contact/contact.component");
+const home_component_1 = require("./pages/home/home.component");
+const products_component_1 = require("./pages/products/products.component");
+const services_component_1 = require("./pages/services/services.component");
+const routes = [
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: 'home', component: home_component_1.HomeComponent },
+    { path: 'about', component: about_component_1.AboutComponent },
+    { path: 'contact', component: contact_component_1.ContactComponent },
+    { path: 'products', component: products_component_1.ProductsComponent },
+    { path: 'services', component: services_component_1.ServicesComponent }
+];
 let AppRoutingModule = class AppRoutingModule {
 };
 AppRoutingModule = __decorate([
