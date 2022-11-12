@@ -8,11 +8,11 @@ import { ServicesComponent } from './pages/services/services.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: 'home', component: HomeComponent},
-  {path: 'about', component: AboutComponent},
-  {path: 'contact', component: ContactComponent},
-  {path: 'products', component: ProductsComponent},
-  {path: 'services', component: ServicesComponent}
+  {path: 'home', component: HomeComponent, data: {title: 'Home'}},
+  {path: 'about', component: AboutComponent, data: {title: 'About'}},
+  {path: 'contact', component: ContactComponent, data: {title: 'Contact'}},
+  {path: 'products', component: ProductsComponent, data: {title: 'Products'}},
+  {path: 'services', component: ServicesComponent, data: {title: 'Services'}}
 ];
 
 @NgModule({

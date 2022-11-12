@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { BasepageComponent } from 'src/app/components/basepage/basepage.component';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent extends BasepageComponent implements OnInit {
 
-  constructor() { }
+  constructor(route: ActivatedRoute) {
+    super(route);
+   }
 
-  ngOnInit(): void {
+  override ngOnInit(): void {
   }
 
 }
