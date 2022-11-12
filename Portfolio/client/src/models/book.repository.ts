@@ -15,7 +15,7 @@ export class BookRepository {
         })
     }
     // Solve the null issue later
-    getBooks(author: string = null ?? ''): Book[] {
+    getBooks(author: string = null!): Book[] {
         return this.books
             .filter(book => author == null || author === book.author);
     }
