@@ -5,7 +5,7 @@ const Password = 'Kirby';
 
 const mappings = {
     get: ['/api/orders', '/orders'],
-    post: ['/api/business-contacts', '/books']
+    post: ['/api/book-list', '/book-list', 'api/categories', '/categories']
 }
 
 function RequiresAuth(method: any, url: any) {

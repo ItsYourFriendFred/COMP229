@@ -6,7 +6,7 @@ var Username = 'Fred63';
 var Password = 'Kirby';
 var mappings = {
     get: ['/api/orders', '/orders'],
-    post: ['/api/business-contacts', '/books']
+    post: ['/api/book-list', '/book-list', 'api/categories', '/categories']
 };
 function RequiresAuth(method, url) {
     return (mappings[method.toLowerCase()] || [])

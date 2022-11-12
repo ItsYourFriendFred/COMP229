@@ -10,6 +10,7 @@
                 {{ author }}
             </button>
         </div>
+        
         <!-- Books -->
         <div class="col-9 p-2">
             <div *ngFor='let book of books' class="card m-1 p-1 text-bg-light">
@@ -19,8 +20,12 @@
                         {{ book.price | currency: 'USD': 'symbol':'2.2-2'}}
                     </span>
                 </h4>
-                <div class="card-text text-bg-info p-3">
+                <div class="card-text text-bg-info p-1">
                     {{ book.description }}
+                    <button class="btn btn-success btn-sm float-end"
+                        (click)='addBookToCart(book)'>
+                        Add to Cart
+                    </button>
                 </div>
             </div>
             <!-- Number per Page -->

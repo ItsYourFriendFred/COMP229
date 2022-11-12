@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { BookStoreModule } from './bookstore/bookstore.module';
-import { ComponentsModule } from './components/components.module';
 import { PagesModule } from './pages/pages.module';
 
 @NgModule({
@@ -15,7 +14,6 @@ import { PagesModule } from './pages/pages.module';
     BrowserModule,
     AppRoutingModule,
     BookStoreModule,
-    ComponentsModule,
     PagesModule
   ],
   providers: [],

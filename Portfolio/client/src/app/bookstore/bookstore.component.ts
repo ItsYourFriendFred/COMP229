@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Book } from 'src/models/book.model';
 import { BookRepository } from 'src/models/book.repository';
+import { Cart } from 'src/models/cart.model';
 
 @Component({
   selector: 'app-bookstore',
@@ -12,7 +13,8 @@ export class BookstoreComponent {
   public booksPerPage = 5;
   public selectedPage = 1;
 
-  constructor(private repository: BookRepository) { }
+  constructor(private repository: BookRepository,
+    private cart: Cart) { }
 
   get books(): Book[]{
     const pageIndex = (this.selectedPage - 1) * this.booksPerPage;
@@ -49,4 +51,8 @@ export class BookstoreComponent {
     .fill(0).map((x, i) => i + 1);
   }
   */
+
+  addBookToCart(book: Book): void {
+    this.cart.addLine(book);
+  }
 }

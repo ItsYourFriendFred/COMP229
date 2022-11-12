@@ -22,6 +22,7 @@ import { ComponentsModule } from "../components/components.module";
         ContactComponent,
         HomeComponent,
         ProductsComponent,
-        ServicesComponent]
+        ServicesComponent,
+        ComponentsModule]
 })
 export class PagesModule { }
