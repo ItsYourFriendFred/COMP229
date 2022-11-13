@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Book } from './book.model';
+import { RestDataSource } from './rest.datasource';
 import { StaticDataSource } from './static.datasource';
 
 @Injectable()
@@ -7,7 +8,8 @@ export class BookRepository {
     private books: Book[] = []; // Book[] = new Array<Book>(); <-- alternate
     private authors: string[] = [];
 
-    constructor(private dataSource: StaticDataSource) {
+    // Changed from StaticDataSource to Rest
+    constructor(private dataSource: RestDataSource) {
         dataSource.getBooks().subscribe(data => {
             this.books = data;
             this.authors = data.map(book => book.author!) // <-- Check use of ! later for issues 
