@@ -1,6 +1,36 @@
-<!-- Bottom Nav -->
-<footer>
-  <nav class="navbar fixed-bottom navbar-dark bg-dark">
-    <h6 class="display-6 navbar-text">&copy; Copyright 2020. All Rights reserved.</h6>
-  </nav>
-</footer>
+  <!-- Bottom Navigation -->
+  <footer>
+    <nav class="navbar fixed-bottom navbar-expand-lg navbar-dark <%= (displayName) ? 'loggedInFooter' : 'bg-dark'; %>">
+      <div class="container-fluid">
+        <h7 class="display-8 navbar-text copyright">&copy; 2022 Fred Wong</h7>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+    
+              <% if(displayName) { %>
+                <li class="navbar-text fw-bold text-decoration-underline text-warning">Secure Access Areas:</li>
+                <li class="nav-item">
+                    <a class="nav-link <%= (page == 'business-contacts') ? 'active' : ''; %>" aria-current="page" href="/business-contacts"><i class="fa-solid fa-lg fa-address-book"></i> Business Contacts</a>
+                </li>
+                <% } else { %>
+                <% } %>
+
+              <% if(displayName) { %>
+                <li class="navbar-text">|</li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/logout"><i class="fa-solid fa-lg fa-right-from-bracket"></i> Log out</a>
+                </li>
+                <li class="nav-item"> 
+                  <a class="nav-link active">Logged in as: <%= displayName %></a>
+                </li>
+              <% } else { %>
+                <li class="nav-item">
+                  <a class="nav-link <%= (page == 'login') ? 'active' : ''; %>" aria-current="page" href="/login"><i class="fa-solid fa-lg fa-square-phone"></i> Log in</a>
+                </li>
+              <% } %>
+            </ul>
+      </div>
+    </nav>
+  </footer>

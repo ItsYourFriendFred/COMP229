@@ -43,7 +43,6 @@ import User from '../Models/user';
 // import indexRouter from '../routes/index';  // Top-level routes  // Not needed if a front-end is used
 import businessContactsRouter from '../routes/business-contacts';  // business-contact routes
 import authRouter from '../routes/auth';  // Authentication routes
-import bookRouter from '../routes/book'
 // import usersRouter from '../routes/users';
 
 const app = express();
@@ -135,7 +134,6 @@ passport.use(strategy);
 // app.use('/api', indexRouter); Not needed if a front-end is used
 app.use('/api', authRouter);
 app.use('/api', passport.authenticate('jwt', {session: false}), businessContactsRouter);
-app.use('/book-list', bookRouter);
 // app.use('/api', usersRouter);
 
 // catch 404 and forward to error handler

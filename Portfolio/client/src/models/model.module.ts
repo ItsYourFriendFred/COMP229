@@ -11,7 +11,6 @@ import { OrderRepository } from './order.repository';
 @NgModule({
     imports: [HttpClientModule],
     providers: [BookRepository, StaticDataSource, Cart, Order, OrderRepository,
-    {provide: StaticDataSource, useClass: RestDataSource}, 
-    RestDataSource]
+    {provide: StaticDataSource, useClass: RestDataSource}]
 })
 export class ModelModule {};

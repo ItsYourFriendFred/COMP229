@@ -7,17 +7,4 @@ export class Book {
         public author?: string,
         public genre?: string
     ) {}
-
-    public toString(): string {
-        return `
-        Book
-        ----------------------------
-        Title:       ${this.title}
-        Genre:       ${this.genre}
-        Author:      ${this.author}
-        Description: ${this.description}
-        Price:       ${this.price}
-        ----------------------------
-        `;
-    }
 }
