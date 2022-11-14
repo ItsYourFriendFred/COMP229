@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { Book } from 'src/models/book.model';
 import { BookRepository } from 'src/models/book.repository';
 import { Cart } from 'src/models/cart.model';
@@ -15,8 +14,7 @@ export class BookstoreComponent {
   public selectedPage = 1;
 
   constructor(private repository: BookRepository,
-    private cart: Cart,
-    private router: Router) { }
+    private cart: Cart) { }
 
   get books(): Book[]{
     const pageIndex = (this.selectedPage - 1) * this.booksPerPage;
@@ -56,6 +54,5 @@ export class BookstoreComponent {
 
   addBookToCart(book: Book): void {
     this.cart.addLine(book);
-    this.router.navigateByUrl('/cart');
   }
 }

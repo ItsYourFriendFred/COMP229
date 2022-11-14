@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Cart } from 'src/models/cart.model';
 
 @Component({
@@ -9,14 +8,9 @@ import { Cart } from 'src/models/cart.model';
 })
 export class CartsummaryComponent implements OnInit {
 
-  constructor(public cart: Cart,
-    public router: Router) { }
+  constructor(public cart: Cart) { }
 
   ngOnInit(): void {
-  }
-
-  viewCart(): void {
-    this.router.navigateByUrl('/cart');
   }
 
 }

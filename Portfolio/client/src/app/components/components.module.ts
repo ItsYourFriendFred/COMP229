@@ -5,12 +5,11 @@ import { BasepageComponent } from "./basepage/basepage.component";
 import { FooterComponent } from "./footer/footer.component";
 import { HeaderComponent } from "./header/header.component";
 import { CartsummaryComponent } from "../bookstore/cartsummary/cartsummary.component";
-import { RouterModule } from "@angular/router";
 
 
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, RouterModule],
+    imports: [BrowserModule, FormsModule],
     declarations: [
         CartsummaryComponent,
         BasepageComponent,

@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { Book } from './book.model';
-import { Order } from './order.model';
-import { JwtHelperService } from '@auth0/angular-jwt'
 
 const Protocol = 'http';
 const Port = 3500;
@@ -21,22 +19,11 @@ export class RestDataSource {
         })
     };
     
-    constructor(private http: HttpClient, private jwtService: JwtHelperService) {
+    constructor(private http: HttpClient) {
         this.baseUrl = `${Protocol}://${location.hostname}:${Port}/`;
     }
 
     getBooks(): Observable<Book[]> {
         return this.http.get<Book[]>(this.baseUrl + 'book-list');
-    }
-
-    saveOrder(order: Order): Observable<Order> {
-        console.log(JSON.stringify(order));
-        return this.http.post<Order>(this.baseUrl + 'orders', order);
-    }
-
-    private loadToken(): void {
-        const token = localStorage.getItem('id_token');
-        this.authToken = token!;
-        this.httpOptions.headers = this.httpOptions.headers.set('Authorization', this.authToken);
     }
 }

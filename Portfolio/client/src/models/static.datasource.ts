@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Book } from './book.model';
 import { Observable, from } from 'rxjs';
-import { Order } from './order.model';
 
 @Injectable()
 export class StaticDataSource{
@@ -23,10 +22,5 @@ export class StaticDataSource{
     getBooks(): Observable<Book[]>
     {
         return from([this.books]);
-    }
-
-    saveOrder(order: Order): Observable<Order> {
-        console.log(JSON.stringify(order));
-        return from ([order]);
     }
 }
