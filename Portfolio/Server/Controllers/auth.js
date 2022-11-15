@@ -2,7 +2,6 @@
 /*!
 File Name: Server/Controllers/auth.ts
 Student Name: Fred Wong
-Student ID: 301199984
 Date: October 26, 2022
 Last Updated: October 26
 
@@ -12,10 +11,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProcessLogoutPage = exports.ProcessRegisterPage = exports.ProcessLoginPage = void 0;
+exports.ProcessLogoutPage = exports.ProcessRegisterPage = exports.ProcessLoginPage = exports.DisplayLoginPage = void 0;
 const passport_1 = __importDefault(require("passport"));
 const user_1 = __importDefault(require("../Models/user"));
 const Util_1 = require("../Util");
+const Util_2 = require("../Util");
+function DisplayLoginPage(req, res, next) {
+    if (!req.user) {
+        return res.render('index', { title: 'Login', page: 'login', messages: req.flash('loginMessage'), displayName: (0, Util_2.UserDisplayName)(req) });
+    }
+    return res.redirect('/business-contacts');
+}
+exports.DisplayLoginPage = DisplayLoginPage;
 function ProcessLoginPage(req, res, next) {
     passport_1.default.authenticate('local', function (err, user, info) {
         if (err) {

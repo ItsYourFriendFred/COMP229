@@ -26,7 +26,7 @@ function DisplayEditPage(req, res, next) {
             console.error(err);
             res.end(err);
         }
-        res.json({ success: true, message: 'Edit page displayed succesfully', books: bookToEdit });
+        res.json({ success: true, message: 'Edit page displayed succesfully', book: bookToEdit });
     });
 }
 exports.DisplayEditPage = DisplayEditPage;
@@ -34,8 +34,8 @@ function ProcessAddPage(req, res, next) {
     let newBook = new book_1.default({
         "title": req.body.title,
         "author": req.body.author,
-        "dateStart": req.body.dateStart,
-        "dateEnd": req.body.dateEnd,
+        "published": req.body.published,
+        "description": req.body.description,
         "price": req.body.price
     });
     book_1.default.create(newBook, function (err) {
@@ -43,7 +43,7 @@ function ProcessAddPage(req, res, next) {
             console.error(err);
             res.end(err);
         }
-        res.json({ success: true, message: 'Successfully added survey!', survey: newBook });
+        res.json({ success: true, message: 'Successfully added book!', book: newBook });
     });
 }
 exports.ProcessAddPage = ProcessAddPage;
@@ -51,7 +51,7 @@ function ProcessEditPage(req, res, next) {
     let id = req.params.id;
     let updatedBook = new book_1.default({
         "_id": id,
-        "name": req.body.name,
+        "title": req.body.title,
         "author": req.body.author,
         "published": req.body.published,
         "description": req.body.description,

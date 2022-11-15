@@ -1,7 +1,6 @@
 /*! 
 File Name: Server/Config/app.js
 Student Name: Fred Wong
-Student ID: 301199984 
 Date: October 3, 2022
 Last Updated: October 26
 
@@ -40,7 +39,7 @@ let localStrategy = passportLocal.Strategy; // Alias
 import User from '../Models/user';
 
 // Import the router data
-// import indexRouter from '../routes/index';  // Top-level routes  // Not needed if a front-end is used
+import indexRouter from '../routes/index';  // Top-level routes  // Not needed if a front-end is used
 import businessContactsRouter from '../routes/business-contacts';  // business-contact routes
 import authRouter from '../routes/auth';  // Authentication routes
 import bookRouter from '../routes/book'
@@ -132,9 +131,9 @@ passport.use(strategy);
 
 
 // Use routes
-// app.use('/api', indexRouter); Not needed if a front-end is used
-app.use('/api', authRouter);
-app.use('/api', passport.authenticate('jwt', {session: false}), businessContactsRouter);
+app.use('/', indexRouter); // Not needed if a front-end is used
+app.use('/', authRouter);
+// app.use('/business-contacts', passport.authenticate('jwt', {session: false}), businessContactsRouter);
 app.use('/book-list', bookRouter);
 // app.use('/api', usersRouter);
 

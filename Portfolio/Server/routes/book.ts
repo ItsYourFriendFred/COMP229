@@ -22,7 +22,7 @@ router.get('/edit/', AuthGuard, EditGuard);
 router.get('/edit/:id', AuthGuard, DisplayEditPage);
 
 /* POST Route for processing the Add page - CREATE Operation */
-router.post('/survey/add', AuthGuard, ProcessAddPage);
+router.post('/add', AuthGuard, ProcessAddPage);
 
 /* POST Route for processing the Edit page - UPDATE Operation */
 router.post('/edit/:id', AuthGuard, ProcessEditPage);

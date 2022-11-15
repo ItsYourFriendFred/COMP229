@@ -1,7 +1,6 @@
 /*! 
 File Name: Server/routes/auth.js
 Student Name: Fred Wong
-Student ID: 301199984 
 Date: October 25, 2022
 Last Updated: October 26
 
@@ -12,7 +11,7 @@ import express from 'express';
 const router = express.Router();
 
 // Import the Controller Module
-import { ProcessLogoutPage, ProcessLoginPage, ProcessRegisterPage } from '../Controllers/auth';
+import { DisplayLoginPage, ProcessLogoutPage, ProcessLoginPage, ProcessRegisterPage } from '../Controllers/auth';
 
 /* GET (Display) Login page. */
 // router.get('/login', DisplayLoginPage);  // Not needed if a front-end is used

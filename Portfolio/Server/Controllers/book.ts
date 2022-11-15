@@ -1,7 +1,6 @@
 /*! 
 File Name: Server/Controllers/business-contacts.ts
 Student Name: Fred Wong
-Student ID: 301199984 
 Date: October 26, 2022
 Last Updated: October 26
 Callback functions corresponding to routes handling business-contact (database) requests
@@ -42,7 +41,7 @@ export function DisplayEditPage(req: express.Request, res: express.Response, nex
 
         // Show the Edit view with the data
         // res.render('index', { title: 'Edit', page: 'edit', contact: contactToEdit, displayName: UserDisplayName(req)})
-        res.json({ success: true, message: 'Edit page displayed succesfully', books: bookToEdit });
+        res.json({ success: true, message: 'Edit page displayed succesfully', book: bookToEdit });
     });
 }
 
@@ -52,8 +51,8 @@ export function ProcessAddPage(req: express.Request, res: express.Response, next
         {
             "title": req.body.title,
             "author": req.body.author,
-            "dateStart": req.body.dateStart,
-            "dateEnd": req.body.dateEnd,
+            "published": req.body.published,
+            "description": req.body.description,
             "price": req.body.price
         }
     );
@@ -67,7 +66,7 @@ export function ProcessAddPage(req: express.Request, res: express.Response, next
 
         // New Contact has been added -> Refresh business-contacts
         // res.redirect('/business-contacts');  // No longer redirecting on the back-end
-        res.json({success: true, message: 'Successfully added survey!', survey: newBook});
+        res.json({success: true, message: 'Successfully added book!', book: newBook});
     })
 }
 
@@ -78,7 +77,7 @@ export function ProcessEditPage(req: express.Request, res: express.Response, nex
     let updatedBook = new Book(
         {
             "_id": id,
-            "name": req.body.name,
+            "title": req.body.title,
             "author": req.body.author,
             "published": req.body.published,
             "description": req.body.description,

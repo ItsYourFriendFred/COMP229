@@ -2,7 +2,6 @@
 /*!
 File Name: Server/Config/app.js
 Student Name: Fred Wong
-Student ID: 301199984
 Date: October 3, 2022
 Last Updated: October 26
 
@@ -51,7 +50,7 @@ const passport_local_1 = __importDefault(require("passport-local"));
 const connect_flash_1 = __importDefault(require("connect-flash"));
 let localStrategy = passport_local_1.default.Strategy;
 const user_1 = __importDefault(require("../Models/user"));
-const business_contacts_1 = __importDefault(require("../routes/business-contacts"));
+const index_1 = __importDefault(require("../routes/index"));
 const auth_1 = __importDefault(require("../routes/auth"));
 const book_1 = __importDefault(require("../routes/book"));
 const app = (0, express_1.default)();
@@ -98,8 +97,8 @@ let strategy = new JWTStrategy(jwtOptions, function (jwt_payload, done) {
     });
 });
 passport_1.default.use(strategy);
-app.use('/api', auth_1.default);
-app.use('/api', passport_1.default.authenticate('jwt', { session: false }), business_contacts_1.default);
+app.use('/', index_1.default);
+app.use('/', auth_1.default);
 app.use('/book-list', book_1.default);
 app.use(function (req, res, next) {
     next((0, http_errors_1.default)(404));
