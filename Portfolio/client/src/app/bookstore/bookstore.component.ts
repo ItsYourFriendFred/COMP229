@@ -18,13 +18,13 @@ export class BookstoreComponent {
     private cart: Cart,
     private router: Router) { }
 
-  get books(): Book[] {
+  get books(): Book[]{
     const pageIndex = (this.selectedPage - 1) * this.booksPerPage;
     return this.repository.getBooks(this.selectedAuthor)
-      .slice(pageIndex, pageIndex + this.booksPerPage);
+    .slice(pageIndex, pageIndex + this.booksPerPage);
   }
 
-  get authors(): string[] {
+  get authors(): string[]{
     return this.repository.getAuthors();
   }
 

@@ -15,9 +15,10 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const Schema = mongoose_1.default.Schema;
 const BookSchema = new Schema({
     title: String,
+    description: String,
+    price: Number,
     author: String,
-    dateStart: String,
-    dateEnd: String,
+    genre: String
 }, {
     collection: "books"
 });

@@ -10,7 +10,6 @@ export class BookRepository {
     constructor(private dataSource: StaticDataSource) {
         dataSource.getBooks().subscribe(data => {
             console.log(data);
-            console.log(this.books)
             this.books = data;
             this.authors = data.map(book => book.author!) // <-- Check use of ! later for issues 
                 .filter((a, index, array) => array.indexOf(a) === index).sort();

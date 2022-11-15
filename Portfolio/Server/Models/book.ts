@@ -15,9 +15,10 @@ const Schema = mongoose.Schema; // Alias for mongoose.Schema
 const BookSchema = new Schema(
     {
         title: String,
+        description: String,
+        price: Number,
         author: String,
-        dateStart: String,
-        dateEnd: String,
+        genre: String
     },
     {
         collection: "books"
