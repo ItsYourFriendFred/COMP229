@@ -20,7 +20,7 @@
                     <!-- Repeating Section-->
                     <tr *ngFor="let line of cart.lines">
                         <td>
-                            <input type="number" class="form-control-sm" style="width: 5em" [value]="line.quantity"
+                            <input type="number" min="1" class="form-control-sm" style="width: 5em" [value]="line.quantity"
                                 (change)="cart.updateQuantity(line.book, $any($event.target).value)"> <!-- TODO Resolve EventTarget issue -->
                         </td>
                         <td>{{ line.book.title }}</td>
