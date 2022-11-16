@@ -7,7 +7,7 @@
         Your Cart:
         <span *ngIf="cart.itemCount > 0">
             {{ cart.itemCount }} item(s)
-            {{ cart.cartPrice | currency: 'USD': 'symbol':'2.2-2' }} 
+            {{ cart.cartPrice | currency: 'USD': 'symbol':'1.2-2' }} 
         </span>
         <span *ngIf="cart.itemCount == 0">
             (empty)
