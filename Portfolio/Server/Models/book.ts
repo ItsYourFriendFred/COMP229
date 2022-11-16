@@ -1,7 +1,6 @@
 /*! 
 File Name: Server/Models/contact.js
 Student Name: Fred Wong
-Student ID: 301199984 
 Date: October 25, 2022
 Last Updated: October 26
 Defining a schema for a business contact for MongoDB
@@ -26,7 +25,7 @@ const BookSchema = new Schema(
 );
 
 // Define index at schema level for alphabetical sorting
-BookSchema.index({ name: 1 });
+BookSchema.index({ title: 1 });
 
 // Create a Model using the Schema
 const Model = mongoose.model("Book List", BookSchema);

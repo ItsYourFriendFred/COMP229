@@ -1,7 +1,6 @@
 /*! 
 File Name: Server/Controllers/auth.ts
 Student Name: Fred Wong
-Student ID: 301199984 
 Date: October 26, 2022
 Last Updated: October 26
 
@@ -20,16 +19,16 @@ import User from '../Models/user';
 import { GenerateToken } from '../Util';
 
 // Import DisplayName Utility method  // Not needed if a front-end is used
-// import { UserDisplayName } from '../Util';
+import { UserDisplayName } from '../Util';
 
 // Display Functions  // Not needed if a front-end is used
-/* export function DisplayLoginPage(req: express.Request, res: express.Response, next: express.NextFunction) {
+export function DisplayLoginPage(req: express.Request, res: express.Response, next: express.NextFunction) {
     if (!req.user) {
         return res.render('index', { title: 'Login', page: 'login', messages: req.flash('loginMessage'), displayName: UserDisplayName(req) });
     }
     return res.redirect('/business-contacts');
 }
-
+/*
 export function DisplayRegisterPage(req: express.Request, res: express.Response, next: express.NextFunction) {
     if (!req.user) {
         return res.render('index', { title: 'Register', page: 'register', messages: req.flash('registerMessage'), displayName: UserDisplayName(req) });

@@ -2,7 +2,6 @@
 /*!
 File Name: Server/Models/contact.js
 Student Name: Fred Wong
-Student ID: 301199984
 Date: October 25, 2022
 Last Updated: October 26
 Defining a schema for a business contact for MongoDB
@@ -22,7 +21,7 @@ const BookSchema = new Schema({
 }, {
     collection: "books"
 });
-BookSchema.index({ name: 1 });
+BookSchema.index({ title: 1 });
 const Model = mongoose_1.default.model("Book List", BookSchema);
 exports.default = Model;
 //# sourceMappingURL=book.js.map

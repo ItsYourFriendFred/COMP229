@@ -2,7 +2,6 @@
 /*!
 File Name: Server/routes/auth.js
 Student Name: Fred Wong
-Student ID: 301199984
 Date: October 25, 2022
 Last Updated: October 26
 

@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Book } from './book.model';
 import { StaticDataSource } from './static.datasource';
+import { RestDataSource } from './rest.datasource';
 
 @Injectable()
 export class BookRepository {
     private books: Book[] = []; // Book[] = new Array<Book>(); <-- alternate
     private authors: string[] = [];
 
-    constructor(private dataSource: StaticDataSource) {
+    constructor(private dataSource: RestDataSource) {
         dataSource.getBooks().subscribe(data => {
-            console.log(data);
             this.books = data;
             this.authors = data.map(book => book.author!) // <-- Check use of ! later for issues 
                 .filter((a, index, array) => array.indexOf(a) === index).sort();

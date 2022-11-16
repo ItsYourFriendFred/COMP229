@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Order } from 'src/models/order.model';
-import { OrderRepository } from 'src/models/order.repository';
+import { Order } from 'src/app/models/order.model';
+import { OrderRepository } from 'src/app/models/order.repository';
 
 @Component({
   selector: 'app-checkout',
