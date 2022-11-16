@@ -20,7 +20,7 @@ export function DisplayBookList(req: express.Request, res: express.Response, nex
         }
         //     res.render('index', {title: 'Business Contacts', page: 'business-contacts', contacts: contactCollection, displayName: UserDisplayName(req)});
         // }).sort('ContactName').collation({ locale: 'en', strength: 2 });
-        res.json({ success: true, message: 'Books Displayed Succesfully', books: bookCollection});
+        res.json(bookCollection);
     });
 }
 

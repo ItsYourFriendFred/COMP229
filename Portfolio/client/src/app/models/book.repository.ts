@@ -41,7 +41,6 @@ export class BookRepository
 
   constructor(private dataSource: RestDataSource)
   {
-    console.log(dataSource);
     dataSource.getBooks().subscribe(data => {
         console.log(data)
       this.books = data;

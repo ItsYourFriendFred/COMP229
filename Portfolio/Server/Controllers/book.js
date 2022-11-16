@@ -11,7 +11,7 @@ function DisplayBookList(req, res, next) {
             console.error(err);
             res.end(err);
         }
-        res.json({ success: true, message: 'Books Displayed Succesfully', books: bookCollection });
+        res.json(bookCollection);
     });
 }
 exports.DisplayBookList = DisplayBookList;
